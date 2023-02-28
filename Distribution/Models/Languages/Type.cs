@@ -6,6 +6,5 @@
         Frontend,
         Backend,
         Fullstack
-
     }
 }
