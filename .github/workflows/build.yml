@@ -1,0 +1,25 @@
+name: Distribution
+on:
+  push:
+    branches:
+    - Mastre
+  pull_request:
+    branches:
+    - Master
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Checking out
+      uses: actions/checkout@v2
+    - name: Instaling .Net
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 7.0.200
+        include-prerelease: false
+    - name: Restoring Task
+      run: dotnet restore
+    - name: Building Task
+      run: dotnet build --no-restore
+    - name: Testing Task
+      run: dotnet test --no-build --verbosity normal
