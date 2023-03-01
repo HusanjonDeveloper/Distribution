@@ -1,3 +1,4 @@
+using Distribution.Brokers.Storages;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +26,8 @@ namespace Distribution
                     name: "v1",
                     info: new OpenApiInfo { Title = "Distribution", Version = "v1" });
             });
+
+            services.AddTransient<IStorageBroker, StorageBroker>(); 
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment enverimant)
