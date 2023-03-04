@@ -1,10 +1,10 @@
-﻿using Distribution.Models.Jobs;
+﻿using Distribution.Models.Salares;
 using Microsoft.EntityFrameworkCore;
 
 namespace Distribution.Brokers.Storages
 {
     public partial class StorageBroker
     {
-        public DbSet<Job> Jobs { get; set; }    
+        public DbSet<Salary> Salaries { get; set; } 
     }
 }
