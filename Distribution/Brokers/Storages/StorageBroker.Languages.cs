@@ -1,4 +1,5 @@
-﻿using Distribution.Models.Languages;
+﻿using System.Threading.Tasks;
+using Distribution.Models.Languages;
 using Microsoft.EntityFrameworkCore;
 
 namespace Distribution.Brokers.Storages
@@ -7,5 +8,7 @@ namespace Distribution.Brokers.Storages
     {
 
         public DbSet<Language> Languages { get; set; }
+       public async ValueTask<Language> InsertLanguagesAsync(Language language)=>
+            await InsertAsync(language);
     }
 }
